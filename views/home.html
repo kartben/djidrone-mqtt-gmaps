@@ -1,0 +1,38 @@
+<!-- 
+<ng-map center="[40.74, -74.18]"></ng-map>
+-->
+
+<!-- <ng-map zoom="20" center="[40.74, -74.18]" map-type-id="MapTypeId.SATELLITE">
+	<marker position="current" animation="Animation.BOUNCE" centered="true"></marker>
+</ng-map>
+
+-->
+
+<style>
+	.custom-marker {
+	}
+	.custom-marker.my1 {
+		/*background: #fff;*/
+	}
+
+	ng-map {
+		width:100%; 
+		height:600px;
+		display: block;
+		}
+
+</style>
+
+<div ng-controller="MainController as vm">
+	<ng-map zoom="17" center="[43.551977, 1.470873]" default-style="false" map-type-id="MapTypeId.ROADMAP">
+
+		<marker ng-repeat="pos in vm.positions" position="{{pos.lat}},{{pos.lng}}"></marker>
+
+		<custom-marker ng-repeat="pos in vm.positions" position="{{pos.lat}},{{pos.lng}}" centered="false">
+			<div class="my1" style="font-size: 2em;">
+				<img src="images/mavic-pro.png" style="transform: rotateX({{ pos.data.pitch }}deg)  rotateY({{ pos.data.roll }}deg) rotateZ({{ pos.data.yaw }}deg) ">
+		</div>
+	</custom-marker>
+
+</ng-map>
+</div>

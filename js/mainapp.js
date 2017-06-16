@@ -71,9 +71,6 @@
 
 
   function MainController(NgMap, MQTTService, $interval, $scope) {
-
-    $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIMk4b_T2TKnj8ZqA1Jz5TY4zEc99RWW8";
-
     var vm = this;
     vm.positions = [];
 

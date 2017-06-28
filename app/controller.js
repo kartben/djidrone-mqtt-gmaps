@@ -16,25 +16,15 @@
 
   function MainController(NgMap, MQTTService, $interval, $scope) {
     var vm = this;
-    vm.positions = [];
 
      MQTTService.on('djidrone', function(data){
             console.log(data);
-            vm.positions = [];
             var lat = data.latitude || 43.551977;
             var lng = data.longitude || 1.470873;
-            vm.positions.push({lat:lat, lng:lng, data:data});
-          // $scope.$apply();
+            vm.drone = {lat:lat, lng:lng, data:data};
+            //$scope.$apply();
         });
 
-            // vm.positions = [];
-            // var lat = 43.551855;
-            // var lng =  1.471081;
-            // var data = {} ;
-            // data.pitch = 0;
-            // data.yaw = 0;
-            // data.roll = 0;
-            // vm.positions.push({lat:lat, lng:lng, data:data});
 
 
     // var generateMarkers = function() {

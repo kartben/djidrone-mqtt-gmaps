@@ -22,7 +22,8 @@ var gulp            = require('gulp'),
     reload          = browserSync.reload,
     $               = require('gulp-load-plugins')(),
     del             = require('del'),
-    runSequence     = require('run-sequence');
+    runSequence     = require('run-sequence'),
+    ghPages         = require('gulp-gh-pages');
 
 
 // optimize images
@@ -186,11 +187,11 @@ gulp.task('usemin', function() {
     }))
     .pipe($.usemin({
       css: [$.minifyCss(), 'concat'],
-      libs: [$.uglify()],
-      nonangularlibs: [$.uglify()],
-      angularlibs: [$.uglify()],
-      appcomponents: [$.uglify()],
-      mainapp: [$.uglify()]
+      libs: [],
+      nonangularlibs: [],
+      angularlibs: [],
+      appcomponents: [],
+      mainapp: []
     }))
     .pipe(gulp.dest('./_build/'));
 });
@@ -227,6 +228,11 @@ gulp.task('build:size', function() {
         return 'Total build size ' + s.prettySize;
       }
     }));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./_build/**/*')
+    .pipe(ghPages());
 });
 
 

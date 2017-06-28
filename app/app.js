@@ -21,7 +21,7 @@
     ])
     .config(config)
     .config(['MQTTProvider',function(MQTTProvider){
-        MQTTProvider.setHref('ws://iot.eclipse.org:80/ws');
+        MQTTProvider.setHref('wss://iot.eclipse.org:443/ws');
     }]);
 
   // safe dependency injection

@@ -17,7 +17,7 @@
 
 	ng-map {
 		width:100%; 
-		height:600px;
+		height:700px;
 		display: block;
 		}
 
@@ -26,12 +26,12 @@
 <div ng-controller="MainController as vm">
 	<ng-map zoom="17" center="[43.551977, 1.470873]" default-style="false" map-type-id="MapTypeId.ROADMAP">
 
-		<marker ng-repeat="pos in vm.positions" position="{{pos.lat}},{{pos.lng}}"></marker>
+		<marker position="{{vm.drone.lat}},{{vm.drone.lng}}"></marker>
 
-		<custom-marker ng-repeat="pos in vm.positions" position="{{pos.lat}},{{pos.lng}}" centered="false">
+		<custom-marker position="{{vm.drone.lat}},{{vm.drone.lng}}" centered="true">
 			<div class="my1" style="font-size: 2em;">
-				<img src="images/mavic-pro.png" style="transform: rotateX({{ pos.data.pitch }}deg)  rotateY({{ pos.data.roll }}deg) rotateZ({{ pos.data.yaw }}deg) ">
-		</div>
+				<img src="images/mavic-pro.png" style="transform: rotateX({{ vm.drone.data.pitch }}deg)  rotateY({{ vm.drone.data.roll }}deg) rotateZ({{ vm.drone.data.yaw }}deg) ">
+			</div>
 	</custom-marker>
 
 </ng-map>

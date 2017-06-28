@@ -74,7 +74,7 @@
     var vm = this;
 
      MQTTService.on('djidrone', function(data){
-            console.log(data);
+            //console.log(data);
             var lat = data.latitude || 43.551977;
             var lng = data.longitude || 1.470873;
             vm.drone = {lat:lat, lng:lng, data:data};

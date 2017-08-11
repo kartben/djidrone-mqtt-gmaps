@@ -72,6 +72,7 @@
 
   function MainController(NgMap, MQTTService, $interval, $scope) {
     var vm = this;
+    vm.drone = { lat: 0, lng: 0};
 
      MQTTService.on('djidrone', function(data){
             //console.log(data);
